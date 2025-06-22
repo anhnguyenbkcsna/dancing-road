@@ -15,7 +15,10 @@ namespace Assets.Scripts.Camera
 
         void LateUpdate()
         {
-            transform.position = Vector3.Lerp(transform.position, target.position + _offset, smoothSpeed);
+            var targetPosition = new Vector3(0.5f * target.position.x + _offset.x, 
+                                              target.position.y + _offset.y, 
+                                              target.position.z + _offset.z);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed);
         }
 
     }

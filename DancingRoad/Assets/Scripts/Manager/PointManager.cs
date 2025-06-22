@@ -1,19 +1,23 @@
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.Manager
 {
-
     public class PointManager : MonoBehaviour
     {
         public static PointManager Instance { get; private set; }
 
         [SerializeField] private TextMeshProUGUI pointText;
         [SerializeField] private TextMeshProUGUI streakText;
-        [SerializeField] private Image perfectImage;
-        [SerializeField] private Image fantasticImage;
+        [SerializeField] private GameObject perfectImage;
+        [SerializeField] private GameObject fantasticImage;
+
+        [Header("Time")] [Range(0, 3f)] public float zoomFrom = 1.5f;
+        [Range(0, 3f)] public float zoomTo = 1.0f;
+        [Range(0, 3f)] public float duration = 0.5f;
+
 
         private int _streakCount;
         private int _points;
@@ -31,20 +35,53 @@ namespace Assets.Scripts.Manager
                 Destroy(gameObject);
             }
         }
+
         public void AddPoints(int points)
         {
             _points += points;
             _streakCount += points;
             UpdateUI();
+            var rnd = Random.Range(0, 100);
+            if (rnd < 30)
+            {
+                ShowPerfectImage();
+            }
+            else if (rnd > 70)
+            {
+                ShowFantasticImage();
+            }
         }
 
         private void UpdateUI()
         {
             pointText.text = _points.ToString();
-            streakText.text = "Streak: x" + _streakCount;
-            streakText.gameObject.transform.DOScale((1 + 0.05f * _streakCount) * Vector3.one, 0.5f).SetEase(Ease.OutBounce).OnComplete(() => {
-                streakText.gameObject.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBounce);
-            });
+            // streakText.gameObject.SetActive(true);
+            // streakText.text = "Streak: x" + _streakCount;
+            pointText.gameObject.transform.DOScale((1 + 0.35f) * Vector3.one, 0.2f)
+                .SetEase(Ease.OutBounce).OnComplete(() =>
+                {
+                    pointText.gameObject.transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutBounce);
+                });
+        }
+
+        private void ShowPerfectImage()
+        {
+            perfectImage.transform.localScale = zoomFrom * Vector3.one;
+            perfectImage.gameObject.SetActive(true);
+            
+            perfectImage.transform.DOScale(zoomTo, duration).SetEase(Ease.OutBack).OnComplete(
+                () => perfectImage.gameObject.SetActive(false)
+            );
+        }
+
+        private void ShowFantasticImage()
+        {
+            fantasticImage.transform.localScale = zoomFrom * Vector3.one;
+            fantasticImage.gameObject.SetActive(true);
+            
+            fantasticImage.transform.DOScale(zoomTo, duration).SetEase(Ease.OutBack).OnComplete(
+                () => fantasticImage.gameObject.SetActive(false)
+            );
         }
 
 #if UNITY_EDITOR

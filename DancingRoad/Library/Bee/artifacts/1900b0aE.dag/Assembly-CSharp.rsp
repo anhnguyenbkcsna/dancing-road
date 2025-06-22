@@ -369,15 +369,19 @@
 "Assets/DOTween/Modules/DOTweenModuleUnityVersion.cs"
 "Assets/DOTween/Modules/DOTweenModuleUtils.cs"
 "Assets/Scripts/Camera/FollowCamera.cs"
+"Assets/Scripts/Manager/AudioManager.cs"
 "Assets/Scripts/Manager/GameInterface.cs"
 "Assets/Scripts/Manager/GameManager.cs"
 "Assets/Scripts/Manager/ObjectPoolManager.cs"
 "Assets/Scripts/Manager/PointManager.cs"
+"Assets/Scripts/Manager/UIManager.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Prefabs/BallDefine.cs"
 "Assets/Scripts/Prefabs/BallPoint.cs"
 "Assets/Scripts/Prefabs/ChangeColor.cs"
 "Assets/Scripts/Prefabs/PlayerBall.cs"
+"Assets/Scripts/Utils/Tutorial.cs"
+"Assets/Travis Game Assets/Hit Impact Effects/Demo Scene/Scripts/HitImpactEffectsPreview.cs"
 -langversion:9.0
 /deterministic
 /optimize+

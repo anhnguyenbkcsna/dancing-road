@@ -1,7 +1,8 @@
 public enum BallColor
 {
-    Aqua,
-    Purple  ,
+    None = 0,
+    Aqua = 1,
+    Purple,
     Red,
     Yellow,
 }

@@ -15,12 +15,12 @@ namespace Assets.Scripts.Prefabs
             ChangeAlbedoColor(color);
         }
 
-        private void ChangeAlbedoColor(BallColor color)
+        public void ChangeAlbedoColor(BallColor color)
         {
             this.color = color;
-            if (meshRenderer != null && colors != null && (int)color < colors.Length)
+            if (meshRenderer != null && colors != null && (int)color - 1 < colors.Length)
             {
-                meshRenderer.material.color = colors[(int)color];
+                meshRenderer.material.color = colors[(int)color - 1];
             }
         }
 

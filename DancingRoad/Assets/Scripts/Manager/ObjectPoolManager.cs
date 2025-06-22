@@ -1,3 +1,5 @@
+using System;
+using Assets.Scripts.Prefabs;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -6,10 +8,11 @@ namespace Assets.Scripts.Manager
     public class ObjectPoolManager : MonoBehaviour
     {
         public static ObjectPoolManager Instance { get; private set; }
+        [Range(0, 50)] public int distance = 20;
 
         [Header("Object Pool Settings")]
         [SerializeField] private GameObject objectToPool;
-        [SerializeField] private int initialPoolSize = 10;
+        [SerializeField] private int initialPoolSize = 25;
 
         private ObjectPool<GameObject> objectPool;
         private void Awake()
@@ -25,20 +28,16 @@ namespace Assets.Scripts.Manager
             DontDestroyOnLoad(gameObject);
         }
 
-        private static void CreatePool(GameObject objectToPool, Vector3 position, Quaternion rotation)
+        public void CreatePool(GameObject objectToPool, Vector3 position, Quaternion rotation)
         {
             if (Instance.objectPool == null)
             {
                 Instance.objectPool = new ObjectPool<GameObject>(
                     () => CreateObject(objectToPool, position, rotation),
+                    OnGetFromPool,
                     OnReleaseObject,
                     OnDestroyObject
                 );
-                // Prepopulate the pool with initial objects
-                for (int i = 0; i < Instance.initialPoolSize; i++)
-                {
-                    Instance.objectPool.Get();
-                }
             }
             else
             {
@@ -46,22 +45,19 @@ namespace Assets.Scripts.Manager
             }
         }
 
-        private static GameObject CreateObject(GameObject objectToPool, Vector3 position, Quaternion rotation)
+        private GameObject CreateObject(GameObject objectToPool, Vector3 position, Quaternion rotation)
         {
-            objectToPool.SetActive(false);
             GameObject obj = Instantiate(objectToPool, position, rotation);
-            obj.SetActive(true);
-            objectToPool.SetActive(true);
-
-            obj.transform.SetParent(Instance.transform); // Set parent to ObjectPoolManager
-            return null;
+            obj.transform.SetParent(Instance.transform);
+            obj.SetActive(false); // Keep inactive until needed
+            return obj;
         }
 
-        private static void OnReleaseObject(GameObject obj)
+        private void OnReleaseObject(GameObject obj)
         {
             if (Instance.objectPool != null)
             {
-                Instance.objectPool.Release(obj);
+                obj.SetActive(false);
             }
             else
             {
@@ -69,7 +65,12 @@ namespace Assets.Scripts.Manager
             }
         }
 
-        private static void OnDestroyObject(GameObject obj)
+        private void OnGetFromPool(GameObject obj)
+        {
+            obj.SetActive(true);
+        }
+
+        private void OnDestroyObject(GameObject obj)
         {
             if (Instance.objectPool != null)
             {
@@ -81,20 +82,36 @@ namespace Assets.Scripts.Manager
             }
         }
 
-        public static GameObject SpawnObject(GameObject objectToPool, Vector3 position, Quaternion rotation)
+        public GameObject SpawnObject(BeatMapEvent data, Vector3 spawnPos)
         {
-            if (Instance.objectPool == null)
+            var pooledObject = Instance.objectPool.Get();
+            // var laneX = data.lane * 2;
+            // var laneZ = data.tick * (60f / GameManager.Instance.BPM) * distance; // Calculate position based on BPM
+            // var spawnPos = transform.position + new Vector3(laneX, 0, laneZ);
+            pooledObject.transform.position = spawnPos;
+
+            // Fix physics issuess
+            var rb = pooledObject.GetComponent<Rigidbody>();
+            if (rb != null)
             {
-                CreatePool(objectToPool, position, rotation);
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
             }
-            GameObject pooledObject = Instance.objectPool.Get();
-            pooledObject.transform.position = position;
-            pooledObject.transform.rotation = rotation;
+
+            var ballPoint = pooledObject.GetComponent<BallPoint>();
+            if (ballPoint != null)
+            {
+                ballPoint.SetBallColor(data.color);
+            }
+            else
+            {
+                Debug.LogError("BallPoint component not found on the spawned ball prefab.");
+            }
             pooledObject.SetActive(true);
             return pooledObject;
         }
 
-        public static void DespawnObject(GameObject obj)
+        public void DespawnObject(GameObject obj)
         {
             if (Instance.objectPool != null)
             {
@@ -106,6 +123,5 @@ namespace Assets.Scripts.Manager
                 Debug.LogWarning("Object pool is not initialized.");
             }
         }
-
     }
 }

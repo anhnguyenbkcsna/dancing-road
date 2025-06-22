@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6944472526261825348}
   - component: {fileID: 6001172024271066981}
   - component: {fileID: 5190611504666110424}
+  - component: {fileID: 6024503885707178793}
   m_Layer: 0
   m_Name: BallPoint
   m_TagString: BallPoint
@@ -129,7 +130,26 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6024503885707178793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4044277550459266105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44bacfc7b6d56b4faa168a5ece892b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballColor: 0
+  ballMeshRenderer: {fileID: 6944472526261825348}
+  ballMaterials:
+  - {fileID: 2100000, guid: 8b8199d47b7ec584f8d891d0cc6b18af, type: 2}
+  - {fileID: 2100000, guid: 3839782722e5fe54792326701f4091ad, type: 2}
+  - {fileID: 2100000, guid: ddef52c222af9ad4aa0fe80a1e89ebb7, type: 2}
+  - {fileID: 2100000, guid: 21437fcc11690b2459ef3ff0a9779235, type: 2}

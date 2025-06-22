@@ -7,6 +7,7 @@ namespace Assets.Scripts.Prefabs
         public static PlayerBall Instance { get; private set; }
         public BallColor BallColor { get; private set; }
 
+        [SerializeField] private ParticleSystem hitParticle;
         [SerializeField] private MeshRenderer ballMeshRenderer;
 
         [Tooltip("Aqua, Purple, Red, Yellow")]
@@ -37,7 +38,16 @@ namespace Assets.Scripts.Prefabs
         public void SetBallColor(BallColor color)
         {
             BallColor = color;
-            ballMeshRenderer.material = ballMaterials[(int)color];
+            ballMeshRenderer.material = ballMaterials[(int)color - 1];
+        }
+
+        public void PlayHitEffect()
+        {
+            if (!hitParticle.gameObject.activeSelf)
+            {
+                hitParticle.gameObject.SetActive(true);
+            }
+            hitParticle.Play();
         }
     }
 }

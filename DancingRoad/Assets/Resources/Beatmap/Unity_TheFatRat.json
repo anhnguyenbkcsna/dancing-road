@@ -19,277 +19,568 @@
   },
   "events": [
     {
-      "type": "ball",
+      "type": "change_color",
       "tick": 0,
-      "lane": -1,
-      "color": "red"
-    },
-    {
-      "type": "ball",
-      "tick": 0,
-      "lane": 1,
-      "color": "yellow"
+      "lane": 0,
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 2,
       "lane": 0,
-      "color": "purple"
-    },
-    {
-      "type": "change_color",
-      "tick": 3,
-      "color": "aqua"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 4,
       "lane": -2,
-      "color": "aqua"
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 4,
+      "lane": -1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 4,
+      "lane": 0,
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 4,
       "lane": 1,
-      "color": "red"
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 6,
-      "lane": 2,
-      "color": "yellow"
+      "lane": -2,
+      "color": 4
     },
     {
       "type": "ball",
-      "tick": 7,
+      "tick": 6,
       "lane": -1,
-      "color": "purple"
+      "color": 4
     },
     {
       "type": "ball",
-      "tick": 7,
+      "tick": 6,
       "lane": 0,
-      "color": "yellow"
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 6,
+      "lane": -1,
+      "color": 3
+    },
+    {
+      "type": "ball",
+      "tick": 6,
+      "lane": -2,
+      "color": 4
     },
     {
       "type": "change_color",
       "tick": 8,
-      "color": "purple"
+      "lane": 0,
+      "color": 1
     },
     {
       "type": "ball",
-      "tick": 9,
+      "tick": 10,
       "lane": -2,
-      "color": "purple"
+      "color": 1
     },
     {
       "type": "ball",
       "tick": 11,
-      "lane": 1,
-      "color": "aqua"
+      "lane": -2,
+      "color": 1
     },
     {
       "type": "ball",
-      "tick": 13,
+      "tick": 12,
+      "lane": -2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 14,
       "lane": 0,
-      "color": "red"
+      "color": 1
     },
     {
       "type": "ball",
-      "tick": 13,
-      "lane": 2,
-      "color": "aqua"
+      "tick": 15,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 16,
+      "lane": 0,
+      "color": 1
     },
     {
       "type": "change_color",
-      "tick": 15,
-      "color": "yellow"
-    },
-    {
-      "type": "ball",
-      "tick": 16,
-      "lane": -1,
-      "color": "yellow"
-    },
-    {
-      "type": "ball",
-      "tick": 16,
-      "lane": 1,
-      "color": "red"
-    },
-    {
-      "type": "ball",
       "tick": 18,
-      "lane": -2,
-      "color": "aqua"
+      "lane": 0,
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 20,
-      "lane": 0,
-      "color": "purple"
-    },
-    {
-      "type": "ball",
-      "tick": 21,
-      "lane": -1,
-      "color": "red"
+      "lane": 2,
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 21,
       "lane": 1,
-      "color": "yellow"
+      "color": 4
     },
     {
-      "type": "change_color",
+      "type": "ball",
       "tick": 22,
-      "color": "aqua"
+      "lane": 0,
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 23,
+      "lane": -1,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 24,
       "lane": -2,
-      "color": "aqua"
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 25,
       "lane": 2,
-      "color": "red"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 27,
       "lane": 0,
-      "color": "yellow"
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 27,
       "lane": -1,
-      "color": "purple"
+      "color": 2
     },
     {
       "type": "change_color",
       "tick": 28,
-      "color": "red"
+      "lane": 0,
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 30,
       "lane": 1,
-      "color": "red"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 30,
       "lane": -2,
-      "color": "red"
+      "color": 2
     },
     {
       "type": "ball",
       "tick": 33,
       "lane": 2,
-      "color": "aqua"
+      "color": 3
+    },
+    {
+      "type": "ball",
+      "tick": 34,
+      "lane": 2,
+      "color": 1
     },
     {
       "type": "ball",
       "tick": 35,
-      "lane": -1,
-      "color": "purple"
+      "lane": 2,
+      "color": 3
     },
     {
-      "type": "change_color",
-      "tick": 37,
-      "color": "yellow"
+      "type": "ball",
+      "tick": 36,
+      "lane": 2,
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 38,
       "lane": 0,
-      "color": "yellow"
+      "color": 4
     },
     {
       "type": "ball",
       "tick": 40,
       "lane": 2,
-      "color": "red"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 42,
       "lane": -2,
-      "color": "purple"
+      "color": 2
     },
     {
       "type": "ball",
       "tick": 42,
       "lane": -1,
-      "color": "yellow"
+      "color": 4
     },
     {
       "type": "change_color",
       "tick": 45,
-      "color": "purple"
+      "lane": 0,
+      "color": 2
     },
     {
       "type": "ball",
       "tick": 46,
       "lane": 1,
-      "color": "purple"
+      "color": 2
     },
     {
       "type": "ball",
       "tick": 48,
       "lane": 0,
-      "color": "purple"
+      "color": 2
     },
     {
       "type": "ball",
       "tick": 50,
       "lane": -2,
-      "color": "red"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 50,
       "lane": 2,
-      "color": "aqua"
+      "color": 1
     },
     {
       "type": "change_color",
       "tick": 52,
-      "color": "aqua"
+      "lane": 0,
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 53,
       "lane": -1,
-      "color": "aqua"
+      "color": 1
     },
     {
       "type": "ball",
       "tick": 53,
       "lane": 1,
-      "color": "aqua"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 56,
       "lane": 0,
-      "color": "red"
+      "color": 3
     },
     {
       "type": "ball",
       "tick": 58,
       "lane": 2,
-      "color": "yellow"
+      "color": 2
     },
     {
       "type": "change_color",
-      "tick": 59,
-      "color": "red"
+      "tick": 62,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 63,
+      "lane": -2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 63,
+      "lane": -1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 63,
+      "lane": 0,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 63,
+      "lane": 1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 63,
+      "lane": 2,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 65,
+      "lane": -2,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 65,
+      "lane": -1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 65,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 65,
+      "lane": 1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 65,
+      "lane": 2,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 67,
+      "lane": -2,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 67,
+      "lane": -1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 67,
+      "lane": 0,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 67,
+      "lane": 1,
+      "color": 2
+    },
+    {
+      "type": "ball",
+      "tick": 67,
+      "lane": 2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 68,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 69,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "change_color",
+      "tick": 70,
+      "lane": 0,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 73,
+      "lane": 1,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 74,
+      "lane": 0,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 75,
+      "lane": -1,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 76,
+      "lane": -2,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 77,
+      "lane": 2,
+      "color": 3
+    },
+    {
+      "type": "ball",
+      "tick": 78,
+      "lane": 1,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 79,
+      "lane": 0,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 80,
+      "lane": -1,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 81,
+      "lane": -2,
+      "color": 4
+    },
+    {
+      "type": "ball",
+      "tick": 82,
+      "lane": 2,
+      "color": 3
+    },
+    {
+      "type": "change_color",
+      "tick": 85,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 87,
+      "lane": -2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 88,
+      "lane": -2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 89,
+      "lane": -2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 90,
+      "lane": -1,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 91,
+      "lane": -1,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 92,
+      "lane": -1,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 93,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 94,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 95,
+      "lane": 0,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 96,
+      "lane": 1,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 97,
+      "lane": 1,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 98,
+      "lane": 1,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 99,
+      "lane": 2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 101,
+      "lane": 2,
+      "color": 1
+    },
+    {
+      "type": "ball",
+      "tick": 102,
+      "lane": 2,
+      "color": 1
+    },
+    {
+      "type": "end",
+      "tick": 110,
+      "lane": 0,
+      "color": 0
     }
   ]
 }

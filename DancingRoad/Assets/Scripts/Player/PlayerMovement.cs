@@ -15,10 +15,12 @@ namespace Assets.Scripts.Player
         [Header("Movement Settings")]
         [SerializeField, Range(0f, 10f)] private float boundaries = 5f;
         [SerializeField, Range(0f, 10f)] private float moveSpeed = 5f;
+        [SerializeField, Range(0f, 10f)] private float slideSpeed = 5f;
         [SerializeField] private float jumpForce = 5f;
 
         private UnityEngine.Camera mainCamera;
         private float bpmSpeed;
+        private bool _isMove;
 
         #region Unity Methods
 
@@ -53,12 +55,25 @@ namespace Assets.Scripts.Player
         {
             Vector2 input = moveAction.action.ReadValue<Vector2>();
 
+            if (_isMove == false)
+            {
+                if (input != Vector2.zero)
+                {
+                    GameManager.Instance.EndTutorial();
+                    _isMove = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             // Apply movement input
             Vector3 moveVector = new Vector3(input.x, 0, 0);
-            transform.Translate(moveVector * moveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(moveVector * slideSpeed * Time.deltaTime, Space.World);
 
             // Apply BPM-based forward movement
-            transform.Translate(Vector3.forward * bpmSpeed * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.forward * bpmSpeed * Time.deltaTime * moveSpeed, Space.World);
 
             // Clamp position within horizontal boundaries
             Vector3 clampedPosition = transform.position;

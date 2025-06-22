@@ -21,17 +21,13 @@ namespace Assets.Scripts.Prefabs
             }
         }
 
-        private void Start()
-        {
-            SetBallColor(ballColor);
-        }
-
         public void SetBallColor(BallColor color)
         {
+            if (color == BallColor.None) return;
             ballColor = color;
-            if (ballMeshRenderer != null && ballMaterials != null && (int)color < ballMaterials.Length)
+            if (ballMeshRenderer != null && ballMaterials != null && (int)color - 1 < ballMaterials.Length)
             {
-                ballMeshRenderer.material = ballMaterials[(int)color];
+                ballMeshRenderer.material = ballMaterials[(int)color - 1];
             }
         }
 
@@ -39,13 +35,13 @@ namespace Assets.Scripts.Prefabs
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                // Handle collision with Player
                 Debug.Log("Collided with Player: " + other.gameObject.name);
-                Destroy(gameObject);
+                // Returns an object to the pool and deactivates it.
+                ObjectPoolManager.Instance.DespawnObject(gameObject);
                 if (PlayerBall.Instance.BallColor != ballColor)
                 {
                     // End Game
-                    Debug.Log("Game Over! Ball color mismatch.");
+                    Debug.Log($"Game Over! Ball color mismatch. {ballColor}");
                     PlayerBall.Instance.gameObject.SetActive(false);
                     GameManager.Instance.EndGame();
                 }
@@ -53,6 +49,7 @@ namespace Assets.Scripts.Prefabs
                 {
                     // Add points
                     PointManager.Instance.AddPoints(1);
+                    PlayerBall.Instance.PlayHitEffect();
                 }
             }
         }
